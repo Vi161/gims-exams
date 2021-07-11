@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 const Main = () => import('../components/Main.vue');
+const Questions = () => import('../components/Questions.vue');
 
 Vue.use(VueRouter);
 
@@ -10,17 +11,11 @@ const routes = [
         name: 'Main',
         path: '/',
         component: Main,
-        meta: {
-            type: 'main1',
-        }
     },
     {
-        name: 'Main1',
-        path: '/main1',
-        component: Main,
-        meta: {
-            type: 'main2',
-        }
+        name: 'Questions',
+        path: '/questions/:type/:name',
+        component: Questions,
     },
 ];
 

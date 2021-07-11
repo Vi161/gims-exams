@@ -19,7 +19,7 @@
             <template v-else>
                 <h2 >Билет {{selected_ticked}}</h2>
                 <div class="d-flex flex-wrap align-items-center justify-content-center mb-2">
-                    <div v-for="(el, key) in tickets"
+                    <div v-for="(el, key) in answers"
                          :key="key"
                          @click="clickTicket(el)"
                          :class="{
@@ -57,6 +57,7 @@ export default {
     computed: {
         ...mapState({
             tickets: 'tickets',
+            answers: 'answers',
         }),
     },
     methods: {
@@ -80,6 +81,7 @@ export default {
     },
     mounted() {
         this.$store.commit('setTickets');
+        this.$store.commit('setAnswers');
         if (this.$route.query.ticket) {
             this.selected_ticked = this.$route.query.ticket;
             this.loadTicket(this.$route.query.ticket)

@@ -9,6 +9,7 @@ export const store = new Vuex.Store({
   state: {
     questions: {
     },
+    answers: [],
     tickets: []
   },
   mutations: {
@@ -18,13 +19,20 @@ export const store = new Vuex.Store({
     setTickets(state) {
       let arr = [];
       for (let i = 0; i <= 15; i++) {
-        arr.push({num: i+1, true_ans: '', sel_ans: ''});
+        arr.push({num: i+1});
       }
       state.tickets = arr;
     },
-    setTicketsValue(state, payload) {
-      state.tickets[payload.ans_num - 1].true_ans = payload.true_ans;
-      state.tickets[payload.ans_num - 1].sel_ans = payload.sel_ans;
+    setAnswers(state) {
+      let arr = [];
+      for (let i = 0; i < 10; i++) {
+        arr.push({num: i+1, true_ans: '', sel_ans: ''});
+      }
+      state.answers = arr;
+    },
+    setAnswersValue(state, payload) {
+      state.answers[payload.ans_num - 1].true_ans = payload.true_ans;
+      state.answers[payload.ans_num - 1].sel_ans = payload.sel_ans;
       // console.log(state.tickets);
     }
   },

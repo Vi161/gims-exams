@@ -11,10 +11,10 @@
                            :key="k"
                            @click="selectAns(el.num, ans.id, el.true_answer)"
                            :class="{
-                               'text-success': (tickets[i].sel_ans === ans.id) && (tickets[i].sel_ans === el.true_answer)
-                               || (tickets[i].sel_ans && ans.id === el.true_answer) ,
-                               'text-danger': (tickets[i].sel_ans === ans.id) && (tickets[i].sel_ans !== el.true_answer),
-                               'pe-none': tickets[i].sel_ans,
+                               'text-success': (answers[i].sel_ans === ans.id) && (answers[i].sel_ans === el.true_answer)
+                               || (answers[i].sel_ans && ans.id === el.true_answer) ,
+                               'text-danger': (answers[i].sel_ans === ans.id) && (answers[i].sel_ans !== el.true_answer),
+                               'pe-none': answers[i].sel_ans,
                            }"
                            class=" text-decoration-none text-start"><span>{{ans.id}}.  </span>{{ans.answer}}</a>
                     </div>
@@ -38,12 +38,12 @@ export default {
     computed: {
         ...mapState({
             tickets: 'tickets',
+            answers: 'answers',
         }),
     },
     methods: {
         async selectAns(ans_num, ans, true_ans) {
-            await this.$store.commit('setTicketsValue',{ans_num: ans_num, true_ans: ans == true_ans, sel_ans: ans});
-            console.log(this.tickets[0]);
+            await this.$store.commit('setAnswersValue',{ans_num: ans_num, true_ans: ans == true_ans, sel_ans: ans});
         },
     }
 }

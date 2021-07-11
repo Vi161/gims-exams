@@ -7,10 +7,16 @@
                     <div class="p-1 w-25 border d-flex align-items-center justify-content-center">{{ el.question }}</div>
                     <div class="p-1 w-25 border d-flex align-items-center justify-content-center">{{ el.img }}</div>
                     <div class="p-1 d-flex flex-column w-25 border align-items-start justify-content-center">
-                        <a href="avascript:void(0);" v-for="(ans, k) in el.answers"
+                        <a href="javascript:void(0);" v-for="(ans, k) in el.answers"
                            :key="k"
-                           @click="selectAns(ans.id, el.true_answer)"
-                           class="text-decoration-none text-start"><span>{{ans.id}}.  </span>{{ans.answer}}</a>
+                           @click="selectAns(el.num, ans.id, el.true_answer)"
+                           :class="{
+                               'text-success': (tickets[i].sel_ans === ans.id) && (tickets[i].sel_ans === el.true_answer)
+                               || (tickets[i].sel_ans && ans.id === el.true_answer) ,
+                               'text-danger': (tickets[i].sel_ans === ans.id) && (tickets[i].sel_ans !== el.true_answer),
+                               'pe-none': tickets[i].sel_ans,
+                           }"
+                           class=" text-decoration-none text-start"><span>{{ans.id}}.  </span>{{ans.answer}}</a>
                     </div>
                 </div>
             </el-card>
@@ -22,16 +28,23 @@
 import { Card } from 'element-ui'
 import axios from 'axios'
 import store from '@/store'
+import { mapState } from 'vuex'
 
 export default {
     name: 'Ticket',
     components: {
         [Card.name]: Card,
     },
+    computed: {
+        ...mapState({
+            tickets: 'tickets',
+        }),
+    },
     methods: {
-        selectAns(ans, true_ns) {
-            console.log(ans, true_ns);
-        }
+        async selectAns(ans_num, ans, true_ans) {
+            await this.$store.commit('setTicketsValue',{ans_num: ans_num, true_ans: ans == true_ans, sel_ans: ans});
+            console.log(this.tickets[0]);
+        },
     }
 }
 </script>

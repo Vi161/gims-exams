@@ -8,12 +8,25 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     questions: {
-    }
+    },
+    tickets: []
   },
   mutations: {
     setSailingArea(state, payload) {
       state.questions = payload;
     },
+    setTickets(state) {
+      let arr = [];
+      for (let i = 0; i <= 15; i++) {
+        arr.push({num: i+1, true_ans: '', sel_ans: ''});
+      }
+      state.tickets = arr;
+    },
+    setTicketsValue(state, payload) {
+      state.tickets[payload.ans_num - 1].true_ans = payload.true_ans;
+      state.tickets[payload.ans_num - 1].sel_ans = payload.sel_ans;
+      // console.log(state.tickets);
+    }
   },
   actions: {
   },

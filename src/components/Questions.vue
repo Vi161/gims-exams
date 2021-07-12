@@ -64,7 +64,7 @@ export default {
         clickTicket(val) {
             if (!this.selected_ticked) {
                 this.selected_ticked = val.num;
-                this.loadTicket(1);
+                this.loadTicket(val.num);
                 this.$router.push({ query: { ticket: val.num } });
             }
         },

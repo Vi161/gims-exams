@@ -6,3 +6,6 @@
 /yarn.lock
 /yarn.lock
 /public/version.json
+node_modules/
+.DS_Store
+

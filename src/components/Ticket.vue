@@ -1,12 +1,14 @@
 <template>
     <div class="container">
         <div v-for="(el, i) in $store.state.questions" :key="i" class="d-flex flex-column">
-            <el-card>
+            <el-card class="card-questions">
                 <div class="d-flex flex-row ">
-                    <div class="p-1 w-25 border d-flex align-items-center justify-content-center">{{ el.num }}</div>
-                    <div class="p-1 w-25 border d-flex align-items-center justify-content-center">{{ el.question }}</div>
-                    <div class="p-1 w-25 border d-flex align-items-center justify-content-center">{{ el.img }}</div>
-                    <div class="p-1 d-flex flex-column w-25 border align-items-start justify-content-center">
+                    <div class="p-1 col1 border-end d-flex align-items-center justify-content-center">{{ el.num }}</div>
+                    <div class="p-1 col2 border-end d-flex align-items-center justify-content-center">{{ el.question }}</div>
+                    <div class="p-1 col3 border-end d-flex align-items-center justify-content-center">
+                        <img :src="`/public/assets/img/sailing_area/vvp/vvp_1-1.jpeg`"/>
+                    </div>
+                    <div class="p-3 col4 d-flex flex-column  align-items-start justify-content-center">
                         <a href="javascript:void(0);" v-for="(ans, k) in el.answers"
                            :key="k"
                            @click="selectAns(el.num, ans.id, el.true_answer)"
@@ -49,6 +51,25 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+    .card-questions .el-card__body {
+        padding: 0;
+    }
+    .col1 {
+        width: 5%;
+    }
+    .col2 {
+        width: 30%;
+    }
+    .col3 {
+        width: auto;
+    }
+    .col3 img {
+        height: 200px;
+        width: auto;
+    }
+    .col4 {
+        width: 46%;
+    }
 
 </style>

@@ -18,7 +18,7 @@ export const store = new Vuex.Store({
     },
     setTickets(state) {
       let arr = [];
-      for (let i = 0; i <= 15; i++) {
+      for (let i = 0; i < 15; i++) {
         arr.push({num: i+1});
       }
       state.tickets = arr;

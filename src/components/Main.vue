@@ -37,6 +37,7 @@
 import { Select, Option } from 'element-ui';
 import store from '../store'
 import axios from 'axios'
+import convert from '../convert/convert';
 
 export default {
     name: 'Main',
@@ -82,6 +83,7 @@ export default {
         ships_value: null
     }),
     mounted() {
+        convert();
     },
     watch: {
         area_value(val) {

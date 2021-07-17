@@ -12,6 +12,7 @@
                 v-for="item in sailing_area"
                 :key="item.value"
                 :label="item.label"
+                :disabled="item.disabled"
                 :value="item.value">
             </el-option>
         </el-select>
@@ -23,9 +24,10 @@
             default-first-option
             placeholder="Типы судов">
             <el-option
-                v-for="item in sailing_area"
+                v-for="item in ships_types"
                 :key="item.value"
                 :label="item.label"
+                :disabled="item.disabled"
                 :value="item.value">
             </el-option>
         </el-select>
@@ -54,11 +56,13 @@ export default {
             },
             {
                 value: 'vp',
-                label: 'Билеты ВП'
+                label: 'Билеты ВП',
+                disabled: true
             },
             {
                 value: 'mp',
-                label: 'Билеты МП-до 20 миль'
+                label: 'Билеты МП-до 20 миль',
+                disabled: true
             },
             {
                 value: 'mt',
@@ -68,7 +72,8 @@ export default {
         ships_types: [
             {
                 value: 'g',
-                label: 'Билеты Г'
+                label: 'Билеты Г',
+                disabled: true
             },
             {
                 value: 'm',
@@ -76,7 +81,8 @@ export default {
             },
             {
                 value: 'p',
-                label: 'Билеты П'
+                label: 'Билеты П',
+                disabled: true
             },
         ],
         area_value: null,
@@ -87,9 +93,10 @@ export default {
     },
     watch: {
         area_value(val) {
-            console.log(val);
             this.$router.push({ name: 'Questions', params: { type: 'sailing_area', name: val } });
-
+        },
+        ships_value(val) {
+            this.$router.push({ name: 'Questions', params: { type: 'ships_types', name: val } });
         }
     }
 

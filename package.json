@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vite"
+    "serve": "vite",
+    "build": "vite build"
   },
   "dependencies": {
     "axios": "^0.21.1",

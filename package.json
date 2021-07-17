@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "start": "node --experimental-worker ./src/main.js"
   },
   "dependencies": {
     "axios": "^0.21.1",

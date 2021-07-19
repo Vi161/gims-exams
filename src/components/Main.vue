@@ -73,7 +73,6 @@ export default {
             {
                 value: 'g',
                 label: 'Билеты Г',
-                disabled: true
             },
             {
                 value: 'm',

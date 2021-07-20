@@ -1,7 +1,11 @@
 <template>
     <div class="container">
-        <router-link :to="{path: '/'}">На главную</router-link>
+        <div class="d-flex justify-content-between">
+            <router-link :to="{path: '/'}">На главную</router-link>
+<!--            <h3>Раздел: {{this.$route.params}}</h3>-->
+        </div>
         <button v-if="selected_ticked" @click="selected_ticked = !selected_ticked" class="mx-4">Выбрать другой билет</button>
+
         <div class="d-flex flex-column pt-4">
             <template v-if="!selected_ticked">
                 <h2>Выберите билет</h2>

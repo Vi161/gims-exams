@@ -17,6 +17,10 @@ const routes = [
         path: '/questions/:type/:name',
         component: Questions,
     },
+    {
+        path: '*', redirect: '/'
+    }
+
 ];
 
 export const router = new VueRouter({

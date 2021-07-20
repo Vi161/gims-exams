@@ -92,10 +92,10 @@ export default {
     },
     watch: {
         area_value(val) {
-            this.$router.push({ name: 'Questions', params: { type: 'sailing_area', name: val } });
+            this.$router.push({ name: 'Questions', params: { type: 'sailing_area', name: val, label: this.sailing_area.find(el=>el.value = val).label } });
         },
         ships_value(val) {
-            this.$router.push({ name: 'Questions', params: { type: 'ships_types', name: val } });
+            this.$router.push({ name: 'Questions', params: { type: 'ships_types', name: val, label: this.ships_types.find(el=>el.value = val).label } });
         }
     }
 

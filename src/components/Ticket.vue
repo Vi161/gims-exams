@@ -6,8 +6,8 @@
                     <div class="p-1 col1 border-end d-flex align-items-center justify-content-center">{{ el.num }}</div>
                     <div class="p-1 col2 border-end d-flex align-items-center justify-content-center">{{ el.question }}</div>
                     <div class="p-1 col3 border-end d-flex align-items-center justify-content-center">
-                        <img :src="`/public/assets/img/${$route.params.type}/${$route.params.name}/${$route.params.name}_${$route.query.ticket}-${el.num}.jpeg`"
-                             onerror="this.onerror=null;this.src='/public/assets/img/question.jpeg';"/>
+                        <img :src="`/assets/img/${$route.params.type}/${$route.params.name}/${$route.params.name}_${$route.query.ticket}-${el.num}.jpeg`"
+                             onerror="this.onerror=null;this.src='/assets/img/question.jpeg';"/>
                     </div>
                     <div class="p-3 col4 d-flex flex-column  align-items-start justify-content-center">
                         <a href="javascript:void(0);" v-for="(ans, k) in el.answers"

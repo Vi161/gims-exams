@@ -71,12 +71,16 @@ export default {
         loadTicket(val) {
             const type = this.$route.params.type;
             const theme = this.$route.params.name;
-            axios.get(`/public/assets/tickets/${type}/${theme}/${theme}_${val}.json`)
-            .then(response => {
-                store.commit('setSailingArea', response.data.questions);
-            }).catch(err => {
-                console.log('error!!!!', err);
-            })
+
+            axios
+                .get(`/assets/tickets/${type}/${theme}/${theme}_${val}.json`)
+                .then(response => {
+                    console.log('kakak', response.data);
+                    store.commit('setSailingArea', response.data.questions);
+                 })
+                .catch(err => {
+                    console.log('error!!!!', err);
+                })
         }
     },
     mounted() {

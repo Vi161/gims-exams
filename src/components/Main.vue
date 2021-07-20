@@ -88,7 +88,7 @@ export default {
         ships_value: null
     }),
     mounted() {
-        convert();
+        // convert();
     },
     watch: {
         area_value(val) {

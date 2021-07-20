@@ -7,7 +7,7 @@ import store from '../src/store/index';
 import { BootstrapVue } from 'bootstrap-vue';
 window.axios = require('axios');
 window.axios.defaults.headers = {
-  'Content-Type': 'application/json',
+  // 'Content-Type': 'application/json',
 }
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';

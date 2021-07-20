@@ -6397,7 +6397,7 @@ export default function () {
     }
 
     //номер листа соответсвует номаре билета
-    let ticket = G['Лист15'];
+    let ticket = MT['Лист4'];
     let result = [];
     ticket.forEach((el, i,arr) => {
         if (el["№"]) {

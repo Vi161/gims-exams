@@ -14,10 +14,11 @@
                            :key="k"
                            @click="selectAns(el.num, ans.id, el.true_answer)"
                            :class="{
-                               'text-success': (answers[i].sel_ans === ans.id) && (answers[i].sel_ans === el.true_answer)
-                               || (answers[i].sel_ans && ans.id === el.true_answer) ,
-                               'text-danger': (answers[i].sel_ans === ans.id) && (answers[i].sel_ans !== el.true_answer),
-                               'pe-none': answers[i].sel_ans,
+                               'text-success': ans.id == el.true_answer ,
+                               // 'text-success': (answers[i].sel_ans === ans.id) && (answers[i].sel_ans === el.true_answer)
+                               // || (answers[i].sel_ans && ans.id === el.true_answer) ,
+                               // 'text-danger': (answers[i].sel_ans === ans.id) && (answers[i].sel_ans !== el.true_answer),
+                               // 'pe-none': answers[i].sel_ans,
                            }"
                            class=" text-decoration-none text-start"><span>{{ans.id}}.  </span>{{ans.answer}}</a>
                     </div>

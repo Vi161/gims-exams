@@ -10,7 +10,8 @@ export const store = new Vuex.Store({
     questions: {
     },
     answers: [],
-    tickets: []
+    tickets: [],
+    theme: null,
   },
   mutations: {
     setSailingArea(state, payload) {
@@ -34,6 +35,9 @@ export const store = new Vuex.Store({
       state.answers[payload.ans_num - 1].true_ans = payload.true_ans;
       state.answers[payload.ans_num - 1].sel_ans = payload.sel_ans;
       // console.log(state.tickets);
+    },
+    setTheme(state, payload) {
+      state.theme = payload;
     }
   },
   actions: {

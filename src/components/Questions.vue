@@ -2,7 +2,7 @@
     <div class="container">
         <div class="d-flex justify-content-between">
             <router-link :to="{path: '/'}">На главную</router-link>
-<!--            <h3>Раздел: {{this.$route.params}}</h3>-->
+            <h3 v-if="$store.state.theme">Раздел: {{$store.state.theme}}</h3>
         </div>
         <button v-if="selected_ticked" @click="selected_ticked = !selected_ticked" class="mx-4">Выбрать другой билет</button>
 

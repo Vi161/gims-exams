@@ -36,6 +36,12 @@ export const store = new Vuex.Store({
       state.answers[payload.ans_num - 1].sel_ans = payload.sel_ans;
       // console.log(state.tickets);
     },
+    clearAnswers(state) {
+      state.answers.forEach(el => {
+        el.sel_ans = '';
+        el.true_ans = '';
+      })
+    },
     setTheme(state, payload) {
       state.theme = payload;
     }

@@ -70,6 +70,7 @@ export default {
                 this.selected_ticked = val.num;
                 this.loadTicket(val.num);
                 this.$router.push({ query: { ticket: val.num } });
+                store.commit('clearAnswers');
             }
         },
         loadTicket(val) {
@@ -79,7 +80,6 @@ export default {
             axios
                 .get(`/assets/tickets/${type}/${theme}/${theme}_${val}.json`)
                 .then(response => {
-                    console.log('kakak', response.data);
                     store.commit('setSailingArea', response.data.questions);
                  })
                 .catch(err => {

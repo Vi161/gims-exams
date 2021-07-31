@@ -88,7 +88,8 @@ export default {
         ships_value: null
     }),
     mounted() {
-        // convert();
+        //конвертирование ответов в нужный json
+        //convert();
     },
     watch: {
         area_value(val) {

@@ -69,9 +69,11 @@ export default {
     .col3 img {
         height: 200px;
         width: 230px;
+        object-fit: contain;
     }
     .col4 {
         width: 46%;
     }
+
 
 </style>

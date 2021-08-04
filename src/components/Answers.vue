@@ -63,7 +63,7 @@ export default {
             })
         },
         loadTickets() {
-            for (let i = 0; i < 15; i++) {
+            for (let i = 1; i <= 15; i++) {
                 this.getTicket('ships_types', 'g', i, 'g');
                 this.getTicket('ships_types', 'm', i, 'm');
                 this.getTicket('sailing_area', 'mt', i, 'mt');

@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 const Main = () => import('../components/Main.vue');
 const Questions = () => import('../components/Questions.vue');
-
+const Answers = () => import('../components/Answers.vue');
 Vue.use(VueRouter);
 
 const routes = [
@@ -16,6 +16,11 @@ const routes = [
         name: 'Questions',
         path: '/questions/:type/:name',
         component: Questions,
+    },
+    {
+        name: 'Answers',
+        path: '/answers',
+        component: Answers,
     },
     {
         path: '*', redirect: '/'

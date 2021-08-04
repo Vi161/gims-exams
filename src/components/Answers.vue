@@ -5,7 +5,7 @@
             v-for="(theme, theme_keys) in g">
                  <span
                      v-for="(val) in theme">
-                     {{val.true_answer}}
+                     {{symbolConvert(val.true_answer)}}
                  </span>
             </p>
         </div>
@@ -14,7 +14,7 @@
                 v-for="(theme, theme_keys) in m">
                  <span
                      v-for="(val) in theme">
-                     {{val.true_answer}}
+                     {{symbolConvert(val.true_answer)}}
                  </span>
             </p>
         </div>
@@ -23,7 +23,7 @@
                 v-for="(theme, theme_keys) in vvp">
                  <span
                      v-for="(val) in theme">
-                     {{val.true_answer}}
+                     {{symbolConvert(val.true_answer)}}
                  </span>
             </p>
         </div>
@@ -32,7 +32,7 @@
                 v-for="(theme, theme_keys) in mt">
                  <span
                      v-for="(val) in theme">
-                     {{val.true_answer}}
+                     {{symbolConvert(val.true_answer)}}
                  </span>
             </p>
         </div>
@@ -69,6 +69,22 @@ export default {
                 this.getTicket('sailing_area', 'mt', i, 'mt');
                 this.getTicket('sailing_area', 'vvp', i, 'vvp');
             }
+        },
+        symbolConvert(val) {
+            let res = ' ';
+            if (val == 1) {
+                res = '▲'
+            }
+            if (val == 2) {
+                res = '►'
+            }
+            if (val == 3) {
+                res = '▼'
+            }
+            if (val == 4) {
+                res = '◄'
+            }
+            return res;
         }
     },
     mounted() {

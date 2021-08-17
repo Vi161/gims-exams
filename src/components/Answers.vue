@@ -2,36 +2,45 @@
     <div class="d-flex">
         <div class="mx-1">
             <p
-            v-for="(theme, theme_keys) in g">
-                 <span
-                     v-for="(val) in theme">
+            v-for="(theme, theme_keys) in g"
+            :key="theme_keys">
+                <span
+                     v-for="(val, k) in theme"
+                     :key="k">
                      {{symbolConvert(val.true_answer)}}
                  </span>
             </p>
         </div>
         <div class="mx-1">
             <p
-                v-for="(theme, theme_keys) in m">
+                v-for="(theme, theme_keys) in m"
+                :key="theme_keys">
                  <span
-                     v-for="(val) in theme">
+                     v-for="(val, k) in theme"
+                     :key="k"
+                 >
                      {{symbolConvert(val.true_answer)}}
                  </span>
             </p>
         </div>
         <div class="mx-1">
             <p
-                v-for="(theme, theme_keys) in vvp">
+                v-for="(theme, theme_keys) in vvp"
+                :key="theme_keys">
                  <span
-                     v-for="(val) in theme">
+                     v-for="(val, k) in theme"
+                     :key="k">
                      {{symbolConvert(val.true_answer)}}
                  </span>
             </p>
         </div>
         <div class="mx-1">
             <p
-                v-for="(theme, theme_keys) in mt">
-                 <span
-                     v-for="(val) in theme">
+                v-for="(theme, theme_keys) in mt"
+                :key="theme_keys">
+                <span
+                     v-for="(val, k) in theme"
+                     :key="k">
                      {{symbolConvert(val.true_answer)}}
                  </span>
             </p>
@@ -52,22 +61,23 @@ export default {
         mt: []
     }),
     methods: {
-        getTicket(type, theme, val, setTo) {
-            axios
+        async getTicket(type, theme, val, setTo) {
+            await axios
             .get(`/assets/tickets/${type}/${theme}/${theme}_${val}.json`)
             .then(response => {
                 this[setTo].push(response.data.questions);
+                console.log(val)
             })
             .catch(err => {
                 console.log('error!!!!', err);
             })
         },
-        loadTickets() {
+        async loadTickets() {
             for (let i = 1; i <= 15; i++) {
-                this.getTicket('ships_types', 'g', i, 'g');
-                this.getTicket('ships_types', 'm', i, 'm');
-                this.getTicket('sailing_area', 'mt', i, 'mt');
-                this.getTicket('sailing_area', 'vvp', i, 'vvp');
+                await this.getTicket('ships_types', 'g', i, 'g');
+                await this.getTicket('ships_types', 'm', i, 'm');
+                await this.getTicket('sailing_area', 'mt', i, 'mt');
+                await this.getTicket('sailing_area', 'vvp', i, 'vvp');
             }
         },
         symbolConvert(val) {
